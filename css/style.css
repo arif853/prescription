@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,ol{
+    list-style: none;
+}
+a,a:hover{
+    text-decoration: none;
+    color: #000;
+}
+#login_window{
+    margin: 100px auto;
+    width: 380px;
+    height: 450px;
+    background: rgb(179, 255, 198);
+}
+#login_window h3{
+    text-align: center;
+    margin-left: 10px;
+    font-size: 40px;
+    font-weight: 700;
+}
+#login_window h4.wrng_pass{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 15px;
+    color: rgb(184, 16, 16);
+}
+#signup_window h3{
+    text-align: center;
+    margin-left: 10px;
+    font-size: 40px;
+    font-weight: 700;
+}
+.fill_box{
+    margin-top: 15px;
+    text-align: center;
+}
+ .fill_box h4{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+.fill_box input{
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    border: 0;
+}
+ .submit {
+    text-align: center;
+    margin-top: 40px;
+}
+.submit input{
+    width: 250px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 0;
+}
+.submit input:hover{
+    background: rgb(255, 218, 184);
+}
+.new_user{
+    text-align: center;
+    margin-top:20px ;
+}
+.new_user p{
+    font-size: 18px;
+}
+.new_user p a:hover{
+    color: rgb(223, 126, 46);
+}
+.frgt_pswd{
+    text-align: center;
+    margin-top:10px ;
+    font-size: 20px;
+}
+.frgt_pswd a:hover{
+    color: rgb(223, 126, 46);
+}
+/*-------------- SignUp Page Css start---------------- */
+
+#signup_window{
+    width: 500px;
+    height: 850px;
+    margin: 50px auto;
+    background: rgb(179, 255, 198);
+}
+#signup_window .fill_box {
+	margin-top: 10px;
+	text-align: center;
+}
+#signup_window .fill_box input {
+	width: 250px;
+	height: 35px;
+	padding: 6px;
+	border: 0;
+}
+#signup_window .fill_box h4 {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+#signup_window .fill_box #gender {
+	width: 90px;
+	height: 35px;
+	text-align: center;
+	font-size: 16px;
+}
+#signup_window h4.wrng_pass{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 15px;
+    color: rgb(184, 16, 16);
+}
+
+/* -------------- Dashboard part ------------- */
+
+
+.header{
+    width: 100%;
+    height: 135px;
+    background: rgba(64, 67, 255, 0.5);
+    color: rgb(0, 0, 0);
+    margin-bottom: 15px;
+    padding-left: 15px;
+    text-align: center;
+}
+.doc-info{
+    text-align: center;
+    
+}
+.patient {
+    margin-top: 35px;
+}
+
+/* -------------- patient ------------ */
+
+.patient-reg .fill_box{
+    margin-top: 15px;
+    /* text-align: center; */
+    float: left;
+}
+.patient-reg .fill_box h4{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+.patient-reg .fill_box input{
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid;
+}
+.patient-reg .submit {
+    text-align: center;
+    margin-top: 40px;
+}
+.submit input{
+    width: 250px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 0;
+}
+.patient-reg #prblm{
+    padding: 5px 10px;
+    font-size: 20px;
+}
+.view_patient{
+    margin-top: 50px;
+}
+
+/* -------------- Prescription ------------ */
+
+.prescription table tr td {
+    border: 1px solid #000;
+    width: 1140px;
+}
+.prescription table .doc_info{
+    text-align: center;
+}
+.prescription .problems{
+    height: 350px;
+    /* background: rgb(255, 96, 96); */
+    padding-left:  30px;
+}
+.prescription .problems .complaint{
+    height: 200px;
+    width: 96%;
+}
+.prescription .advice{
+    height: 150px;
+    /* background: rgb(96, 255, 117); */
+    margin: 10px 0px 0px 10px;
+}
+.prescription .advice input{
+    height: 90px;
+    width: 90%;
+}
+.prescription .add_med{
+    height: 500px;
+    /* background: rgb(96, 255, 117); */
+}
+.prescription .add_med .rx {
+	padding: 20px 0px 0px 40px;
+    font-size: 25px;
+}
+.prescription .select_med{
+    padding-left: 10px;
+    padding-top: 20px;
+    text-align: center;
+}
+.form-control {
+    display: inline;
+	width: 200px;
+    margin-right: 5px;
+}
+.table {
+	width: 90%;
+	margin-left: 40px;
+}
+
