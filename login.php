@@ -45,7 +45,7 @@ session_start();
 <body>
     <div class="login_home">
         <div id="login_window" class="login_window">
-            <h3>Online Prescription</h3>
+            <h3>Login Here</h3>
             <?php 
                 if(isset($wrng_pass))
                 {
@@ -67,6 +67,7 @@ session_start();
             </form>
             <div class="new_user">
                 <p>Register as a Doctor! <span><a href="signup.php">SignUp Here!</a></span></p>
+                <p>Foget Password <span ><a href="forgetpassword.php">Click Here!</a></span></p>
             </div>
             <p></p>
             <!-- <div class="frgt_pswd">

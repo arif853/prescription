@@ -80,6 +80,17 @@ a,a:hover{
 .frgt_pswd a:hover{
     color: rgb(223, 126, 46);
 }
+
+/* Reset Password */
+
+#mini_window{
+    width: 400px;
+    height: 430px;
+    background: rgba(64, 67, 255, 0.5);
+    margin: 0 auto;
+}
+
+
 /*-------------- SignUp Page Css start---------------- */
 
 #signup_window{
