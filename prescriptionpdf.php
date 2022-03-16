@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include("db_con/database_con.php");
+	// $pres_no = $_SESSION['pno'];
 	if(isset($_SESSION["doc_id"]) == true){
 
 		$user = $_SESSION["doc_id"];
@@ -37,12 +38,11 @@
 		
     }	
 
-	// $p_query = "SELECT * FROM prescription WHERE 1";
-	// $p_result = mysqli_query($conn, $p_query);
-	// $pdata= mysqli_fetch_array($p_result);
+	$p_query = "SELECT * FROM prescription WHERE pid = $id";
+	$p_result = mysqli_query($conn, $p_query);
+	$pdata= mysqli_fetch_array($p_result);
 
-		// $complaint = $pdata['complain'];
-		// $advice = $pdata['advice'] ;
+	$p_no = $pdata['prescriptionID'];
 
 
 	$date =date("Y-m-d") ;
@@ -59,10 +59,10 @@
 	$pdf->setFont("Arial",NULL,10);
 	$pdf->Cell(190,5,$designation.", ".$designation2,0,1,"C");
 	$pdf->Cell(190,5,$hospital,0,1,"C");
-	$pdf->Cell(65,5,"Email",0,0,"R");
-	$pdf->Cell(25,5,": ".$email,0,0,"C");
-	$pdf->Cell(14,5,"Phone",0,0,"R");
-	$pdf->Cell(22,5,": ".$phone,0,1,"C");
+	$pdf->Cell(65,5,"",0,0,"R");
+	$pdf->Cell(25,5,"".$email,0,0,"C");
+	$pdf->Cell(14,5,"",0,0,"R");
+	$pdf->Cell(22,5,"".$phone,0,1,"C");
 
 	$pdf->Cell(50,10,"",0,1);
 
@@ -109,6 +109,6 @@
 	
 
 	
-	
+	$pdf->Output("PDF/Pres_".$fname."_".$date.".pdf", "F");
 	$pdf->output('I');
 ?>

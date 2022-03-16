@@ -5,7 +5,7 @@
         <?php
             session_start();	
             include("db_con/database_con.php");
-            // $id = $_SESSION['pid'];
+            $id = $_SESSION['pid'];
             if(isset($_POST['add_med'])){
 
                 $select_med = $_POST['select_med'];

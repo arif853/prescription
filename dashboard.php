@@ -2,7 +2,7 @@
 	session_start();
 
 	include("db_con/database_con.php");
-	if(isset($_SESSION["doc_id"]) == true){
+	if(!empty($_SESSION["logged_in"])){
 
 		$user = $_SESSION["doc_id"];
 		$query = "SELECT * FROM users WHERE doc_id = '$user' limit 1 ";

@@ -3,7 +3,7 @@
 	include("db_con/database_con.php");
 	$date =date("Y-m-d") ;
 	$prescription_no = random_int(100000, 999999);
-	if(isset($_SESSION["doc_id"]) == true){
+	if(isset($_SESSION["doc_id"])){
 
 		$user = $_SESSION["doc_id"];
 		$query = "SELECT * FROM users WHERE doc_id = '$user' limit 1 ";
@@ -39,7 +39,7 @@
     }	
 	
 	$_SESSION['pid'] = $id;
-	// $_SESSION['pno'] = $prescription_no;
+	$_SESSION['pno'] = $prescription_no;
 	if(isset($_POST['submit'])){
 
 
@@ -115,7 +115,7 @@
 								</td> -->
 								<td colspan='4'>
 									<?php 
-									include_once("template/select_med.php");
+									include("template/select_med.php");
 									?>
 								</td>
 							</tr>

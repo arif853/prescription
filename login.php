@@ -1,7 +1,7 @@
 <?php
 session_start();
     include("db_con/database_con.php");
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_POST['submit'])== true){
         //somthing read
         $user_id = $_POST['user_id'];
 		$password = $_POST['password'];
@@ -18,6 +18,7 @@ session_start();
 					$user_data = mysqli_fetch_assoc($result);
 					if(password_verify($password, $user_data['password']))
 					{
+                        $_SESSION['logged_in'] = true;
                         $_SESSION['doc_id'] = $user_data['doc_id'];
 						header("Location: dashboard.php");
 						die;
@@ -62,7 +63,7 @@ session_start();
                     <input type="password" name="password" id="" placeholder="Password">
                 </div>
                 <div class="submit">
-                    <input type="submit" value="Login">
+                    <input type="submit" name="submit" value="Login">
                 </div>
             </form>
             <div class="new_user">
