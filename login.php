@@ -12,22 +12,46 @@ session_start();
             $query = "SELECT doc_id, password FROM users WHERE doc_id = '$user_id' limit 1 ";
             $result = mysqli_query($conn, $query);
 
+            $m_query = "SELECT user_id, password FROM manager WHERE user_id = '$user_id' limit 1 ";
+            $m_result = mysqli_query($conn, $m_query);
+            
             if($result){
                 if($result && mysqli_num_rows($result) > 0)
 				{
 					$user_data = mysqli_fetch_assoc($result);
 					if(password_verify($password, $user_data['password']))
 					{
-                        $_SESSION['logged_in'] = true;
-                        $_SESSION['doc_id'] = $user_data['doc_id'];
-						header("Location: dashboard.php");
-						die;
+                            $_SESSION['logged_in'] = true;
+                            $_SESSION['doc_id'] = $user_data['doc_id'];
+                            header("Location: dashboard.php");
+                            die;
 					}
                     else
                     $wrng_pass = "Wrong user_id or password!";
 				}
                 else
                 $wrng_pass = "User does not exist!!";
+            }
+            if($m_result){
+                if($m_result && mysqli_num_rows($m_result) > 0)
+				{
+					$m_data = mysqli_fetch_assoc($m_result);
+					if(password_verify($password, $m_data['password']))
+					{
+                        $_SESSION['logged_in'] = true;
+                        $_SESSION['user_id'] = $m_data['user_id'];
+                        $_SESSION['doc_id'] = $user_data['doc_id'];
+                        header("Location: manager/index.php");
+                        die;
+                        
+					}
+                    else
+                    $wrng_pass = "Wrong user_id or password!!!";
+				}
+                else
+                $wrng_pass = "User does not exist!!!!!";
+                # code...
+                
             }
         }
         else
@@ -68,6 +92,7 @@ session_start();
             </form>
             <div class="new_user">
                 <p>Register as a Doctor! <span><a href="signup.php">SignUp Here!</a></span></p>
+                <p>Register as a Manger! <span><a href="manager/manager.php">Click Here!</a></span></p>
                 <p>Foget Password <span ><a href="forgetpassword.php">Click Here!</a></span></p>
             </div>
             <p></p>

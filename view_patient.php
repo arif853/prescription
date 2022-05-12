@@ -124,6 +124,7 @@ if(isset($_POST['delete'])){
                         <td>#</td>
                         <td>Patient Name</td>
                         <td>Last Prescription</td>
+                        <td>Prescription</td>
                     </tr>
                    
                     <?php 
@@ -137,6 +138,7 @@ if(isset($_POST['delete'])){
                         <td><?php echo $his_data['prescriptionID'];?></td>
                         <td><?php echo $fname.' '.$lname;?></td>
                         <td><?php echo $his_data['added_date'];?></td>
+                        <td><a href="PDF/Pres_Mahinur_2022-05-06.pdf" download class="btn btn-warning">View Prescription</a></td>
                     </tr>
                         <?php
                         $i++; 

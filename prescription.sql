@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2021 at 05:33 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Generation Time: May 12, 2022 at 02:49 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `prescription`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `manager`
+--
+
+CREATE TABLE `manager` (
+  `user_id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `designation` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `manager`
+--
+
+INSERT INTO `manager` (`user_id`, `name`, `email`, `designation`, `password`) VALUES
+(12345, 'Mr Admin', 'admin@admin.com', 'manager', '$2y$10$OHyzhrCYjbpPumjJdbC8ZOKbPm5aNTN8I0T91YUt9dyYuSaNcWzea');
 
 -- --------------------------------------------------------
 
@@ -80,9 +101,7 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`pid`, `upi`, `fname`, `lname`, `age`, `address`, `phone`, `email`, `bp`, `temparature`, `weight`, `sex`, `doc_id`) VALUES
-(1, 305735, 'Abdul', 'Alim', 49, 'Badda, dhaka', '01915640679', 'user@gmai.com', '120/80', '36', 70, 'Male', 679),
 (2, 656187, 'Mahinur', 'Rahman', 5, '24/B Paltan, Dhaka 1000', '01710198659', 'm.saheen@yahoo.com', '120/80', 'Normal', 20, 'female', 122),
-(4, 715480, 'Tahmina ', 'Islam', 3, 'Rasulpur, Jatrabari, Dhaka 1236', '01783446007', '', '', '', 40, '', 1025),
 (2, 750217, 'Ms. Maisha', 'Rahman', 11, 'Dania, Jatrabari, Dhaka 1236', '01756217366', 'sadia@gmail.com', 'B+', '98 F', 50, 'female', 679);
 
 -- --------------------------------------------------------
@@ -104,17 +123,12 @@ CREATE TABLE `prescription` (
 --
 
 INSERT INTO `prescription` (`prescriptionID`, `did`, `pid`, `complain`, `added_date`) VALUES
-(19, 122, 715480, '', '2021-09-05'),
-(20, 122, 656187, '', '2021-09-05'),
-(21, 122, 656187, '', '2021-09-05'),
-(22, 122, 656187, 'dgdfgrgtdgertgdfgdfg dfb hdfh bdf er gdfg  ', '2021-09-05'),
-(23, 122, 656187, '', '2021-09-05'),
-(24, 122, 656187, 'fgdsgdfgs', '2021-09-05'),
-(25, 122, 656187, '', '2021-09-05'),
-(26, 679, 305735, '', '2021-09-05'),
-(111610, 679, 305735, '', '2021-09-05'),
-(860429, 679, 305735, '', '2021-09-05'),
-(988495, 679, 305735, '', '2021-09-05');
+(164733, 679, 656187, '', '2022-03-16'),
+(349433, 122, 656187, '', '2022-05-06'),
+(385584, 122, 656187, '', '2022-05-06'),
+(499306, 122, 656187, '', '2022-05-09'),
+(849327, 122, 656187, '', '2022-05-06'),
+(933723, 679, 656187, '', '2022-03-16');
 
 -- --------------------------------------------------------
 
@@ -169,6 +183,7 @@ CREATE TABLE `select_med` (
   `useage` varchar(255) NOT NULL,
   `duration` varchar(255) NOT NULL,
   `patient_id` int(10) NOT NULL,
+  `ps_ID` int(255) NOT NULL,
   `added_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -176,21 +191,15 @@ CREATE TABLE `select_med` (
 -- Dumping data for table `select_med`
 --
 
-INSERT INTO `select_med` (`id`, `med`, `useage`, `duration`, `patient_id`, `added_date`) VALUES
-(29, 10, '1+1+1', '7 days', 656187, '2021-09-04'),
-(30, 13, '1+0+1', '7 days', 656187, '2021-09-04'),
-(31, 5, '1+1+1', '15 days', 656187, '2021-09-04'),
-(34, 5, '1+0+1', '15 days', 656187, '2021-09-05'),
-(35, 10, '1+1+1', '15 days', 656187, '2021-09-05'),
-(36, 15, '1+0+1', '2 Days', 656187, '2021-09-05'),
-(37, 17, '1+0+1', '2 Days', 656187, '2021-09-05'),
-(38, 19, '1+0+1', '7 days', 656187, '2021-09-05'),
-(39, 10, '1+0+0', '5 days', 715480, '2021-09-05'),
-(40, 5, '1+0+1', '15 days', 750217, '2021-09-05'),
-(41, 11, '1+1+1', '7 days', 715480, '2021-09-05'),
-(42, 19, '1+0+1', '2 Weeks', 305735, '2021-09-05'),
-(43, 10, '1+0+0', '15 days', 305735, '2021-09-05'),
-(44, 12, '1+1+1', '15 days', 305735, '2021-09-05');
+INSERT INTO `select_med` (`id`, `med`, `useage`, `duration`, `patient_id`, `ps_ID`, `added_date`) VALUES
+(61, 10, '1+0+1', '7 Days', 656187, 0, '2022-03-16'),
+(62, 15, '1+0+1', '3 Days', 656187, 0, '2022-03-16'),
+(63, 12, '', '', 656187, 0, '2022-03-16'),
+(64, 10, '1+0+1', '7 Days', 656187, 0, '2022-05-06'),
+(65, 11, '1+0+0', '3 Days', 656187, 284652, '2022-05-06'),
+(66, 5, '1+0+1', '7 Days', 656187, 914528, '2022-05-06'),
+(67, 10, '1+0+0', '7 Days', 656187, 128241, '2022-05-09'),
+(68, 11, '1+0+0', '7', 656187, 371128, '2022-05-09');
 
 -- --------------------------------------------------------
 
@@ -217,7 +226,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`doc_id`, `fullname`, `email`, `designation`, `desig_other`, `DOB`, `address`, `phone`, `password`, `gender`, `hospital`) VALUES
-(122, 'Arif Hossen', 'arif@gmail.com', 'Prof. ', 'MBBS(DMC), FCPS(Medicine)', '1990-02-01', '1/86 East Rasulpur, Dania, Jatrabari, Dhaka, Bangladesh, 1236', '01795795441', '$2y$10$KvOs95DMYIvVARG3ol32su/tZfHz9n3DR9kSySuW7rEqHi8l9hz7m', 'Male', 'Dhaka Medical College'),
+(122, 'Arif Hossen', 'arifhossen853@gmail.com', 'Prof. ', 'MBBS(DMC), FCPS(Medicine)', '1990-02-01', '1/86 East Rasulpur, Dania, Jatrabari, Dhaka, Bangladesh, 1236', '01795795441', '$2y$10$W5GVKYiYe55BwoAUA1rZZet84/pn.epIamNCnXN5bhGDeYAUCbEBa', 'Male', 'Dhaka Medical College'),
 (679, 'Dr. Quazi Md. Enayet Hossain', 'quazi@gmail.com', 'Assoc. Prof.', 'MBBS', '1980-01-01', 'KutubKhali, Dhaka 1236', '01915640679', '$2y$10$Ru3vNZflqxzceRrVt2eVb.3.6nk2WUw63/DAArxLLwTpQf09Q3uXG', 'Male', 'New Padma Medical'),
 (1012, 'Arif Hossen', 'arif1@gmail.com', 'Prof.', '', '2023-10-03', 'Dhaka', '01795795441', '$2y$10$KWQlXHiJi/iFu/Yd6/wRkOjdpLNkJwwcuEayAtc16wUjFXY2.LBbS', 'Male', 'BRB Hospital, Dhaka.'),
 (1025, 'Dr. Shanaj Sarkar', 'shanaj.sarker@gmail.com', 'Prof. ,MBBS(DU), FCPS(UK)', '', '1980-06-15', '24/B Paltan, Dhaka 1000', '01795795895', '$2y$10$oWH0EWQ2mlQvwSFMhULIx./74GQegqhWXq75.NFSGeaGvV4zX0Fem', 'Female', '');
@@ -293,7 +302,7 @@ ALTER TABLE `problems`
 -- AUTO_INCREMENT for table `select_med`
 --
 ALTER TABLE `select_med`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- Constraints for dumped tables

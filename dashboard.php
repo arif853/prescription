@@ -1,6 +1,5 @@
 <?php
 	session_start();
-
 	include("db_con/database_con.php");
 	if(!empty($_SESSION["logged_in"])){
 

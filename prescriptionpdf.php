@@ -109,6 +109,6 @@
 	
 
 	
-	$pdf->Output("PDF/Pres_".$fname."_".$date.".pdf", "F");
+	$pdf->Output("PDF/".$fname."_".$date.".pdf", "F");
 	$pdf->output('I');
 ?>
