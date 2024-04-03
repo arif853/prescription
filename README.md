@@ -24,3 +24,8 @@ Welcome to the Prescription Management System! This system simplifies the proces
 - Implement additional features such as appointment scheduling and medication reminders.
 
 Feel free to explore the system and contribute to its development! Your feedback and contributions are highly appreciated. Happy prescribing!
+
+### Find Me:
+- [My Website](https://arifhossen.info/)
+- [GitHub](http://github.com/arif853)
+- [LinkedIn](http://linkedin.com/in/arif-hossen853)
